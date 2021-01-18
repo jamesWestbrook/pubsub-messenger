@@ -25,7 +25,7 @@ open class Messenger(
         pubSubTemplate.subscribe(subscription, messageConsumer)
     }
 
-    fun relayMessage(pubsubMessage: PubsubMessage) : CompletableFuture<BasicAcknowledgeablePubsubMessage> {
+    fun exchange(pubsubMessage: PubsubMessage) : CompletableFuture<BasicAcknowledgeablePubsubMessage> {
         val messengerId = UUID.randomUUID().toString()
         pubsubMessage.attributesMap["messenger-id"] = messengerId
         pubSubTemplate.publish(topic, pubsubMessage).get()

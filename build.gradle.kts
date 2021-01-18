@@ -13,6 +13,7 @@ java.sourceCompatibility = JavaVersion.VERSION_15
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven { url = uri("https://repo.spring.io/milestone") }
 }
 
